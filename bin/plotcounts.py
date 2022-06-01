@@ -3,7 +3,7 @@ Plot word counts.
 """
 
 import argparse
-import pandas 
+import pandas as pd
 
 def main(args):
   """Run the command line program."""
