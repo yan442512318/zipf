@@ -1,4 +1,4 @@
-# Zipf's Law
+# Zipf's La
 
 ## Contributors
 
