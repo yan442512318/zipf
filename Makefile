@@ -1,4 +1,6 @@
-.PONY : all clean settings help
+.PONY : results all clean settings help
+
+include config.mk
 
 COUNT=bin/script_template.py
 RUN_COUNT=python $(COUNT)
@@ -26,7 +28,7 @@ results/%.csv : data/%.txt $(COUNT)
 
 ## clean : Remove all generated files.
 clean :
-	rm -f results/*.csv 
+	rm $(RESULTS) results/collated.csv results/collated.png
 
 ## settings : Show variable's value.
 settings :
@@ -38,4 +40,4 @@ settings :
 
 ## help : show this message.
 help :
-	@grep '^##' ./Makefile
+	@grep -h -E '^##' $(MAKEFILE_LIST) | sed -e 's/## //g' | column -t -s ':'
